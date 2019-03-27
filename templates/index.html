@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <meta name="Users" content="Practicing CRUD operations">
+          <title>Users</title>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     </head>
+     <body>
+          <div class="container">
+               <h1 class="display-4 text-center">All Users</h1>
+               <table class="table">
+                    <thead class="thread-light">
+                         <tr>
+                              <th scope="col" class="text-center">id</th>
+                              <th scope="col" class="text-center">Full Name</th>
+                              <th scope="col" class="text-center">Email</th>
+                              <th scope="col" class="text-center">Created At</th>
+                              <th scope="col" class="text-center">Actions</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         {%for user in users%}
+                         <tr>
+                              <td class="text-center">{{user['id']}}</td>
+                              <td class="text-center">{{user['first_name']}} {{user['last_name']}}</td>
+                              <td class="text-center">{{user['email']}}</td>
+                              <td class="text-center">{{user['created_at']}}</td>
+                              <td><a href="/users/{{user['id']}}">Show</a> | <a href="/users/{{user['id']}}/edit">Edit</a> | <a href="/users/{{user['id']}}/destroy">Delete</a></td>
+                         </tr>
+                         {%endfor%}
+                    </tbody>
+               </table>
+               <div class="footer">
+                    <a href="/users/new"> Add a New User</a>
+               </div>
+          </div>
+     </body>
+</html>
